@@ -28,6 +28,7 @@ import { Scene3D } from './lib/scene3d';
 import { MasterTimeline } from './lib/masterTimeline';
 import { CaseStudyModal } from './lib/caseStudyModal';
 import { MinimalCursor } from './lib/cursor';
+import { FlowingMenu } from './components/FlowingMenu';
 import { setupInteractiveCapabilities } from './lib/interactivePlayground';
 
 function bootstrap(): void {
@@ -228,20 +229,24 @@ function renderDynamicContent(): void {
     if (p3Github) p3Github.href = p3.githubUrl;
   }
 
-  // Chapter 05: Experiments
-  const expCardsContainer = document.getElementById('experimentCardsContainer');
-  if (expCardsContainer) {
-    expCardsContainer.innerHTML = experiments.map(exp => `
-      <a class="experiment-card" href="${exp.url}" target="_blank" rel="noopener noreferrer" data-exp-id="${exp.id}" style="text-decoration: none; color: inherit;">
-        <div class="exp-thumb">
-          <img src="${exp.media.thumbnail}" alt="${exp.title}" loading="lazy" />
-        </div>
-        <div class="exp-info">
-          <h3>${exp.title} ↗</h3>
-          <p>${exp.description}</p>
-        </div>
-      </a>
-    `).join('');
+  // Chapter 05: Experiments via FlowingMenu (React Bits integration)
+  const flowingMenuContainer = document.getElementById('flowingMenuContainer');
+  if (flowingMenuContainer) {
+    const flowingItems = experiments.map(exp => ({
+      text: exp.title,
+      link: exp.url,
+      image: exp.media.thumbnail
+    }));
+
+    new FlowingMenu(flowingMenuContainer, {
+      items: flowingItems,
+      speed: 15,
+      textColor: '#ffffff',
+      bgColor: 'transparent',
+      marqueeBgColor: '#ffffff',
+      marqueeTextColor: '#060607',
+      borderColor: 'rgba(255, 255, 255, 0.12)'
+    });
   }
 
   // Chapter 06: Capabilities Matrix
