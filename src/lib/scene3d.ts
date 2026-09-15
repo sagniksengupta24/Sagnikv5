@@ -65,36 +65,38 @@ export class Scene3D {
 
   private buildSpatialPanels(): void {
     const textureLoader = new THREE.TextureLoader();
+    // Milestone 2 Fix: Panels flank the corridor sides (X: ±6) and are staged along the flight path
+    // so the central viewport (where "TRANSVERSE DIMENSION" and its copy live) remains 100% clear.
     const panelConfigs = [
       {
         src: assets.projects.motoSim.hero,
-        pos: new THREE.Vector3(-3.8, 1.2, 16),
-        rot: new THREE.Vector3(0, 0.15, -0.04),
-        scale: [5, 3.2]
+        pos: new THREE.Vector3(-7.2, -1.5, 8),
+        rot: new THREE.Vector3(0, 0.24, -0.03),
+        scale: [4.8, 3.0]
       },
       {
         src: assets.projects.quantum.hero,
-        pos: new THREE.Vector3(3.6, -1.0, 9),
-        rot: new THREE.Vector3(-0.05, -0.18, 0.03),
+        pos: new THREE.Vector3(7.5, 1.2, 0),
+        rot: new THREE.Vector3(-0.04, -0.24, 0.03),
         scale: [4.8, 3.0]
       },
       {
         src: assets.projects.finops.hero,
-        pos: new THREE.Vector3(-2.8, -1.4, 1),
-        rot: new THREE.Vector3(0.08, 0.22, -0.02),
-        scale: [5.2, 3.2]
+        pos: new THREE.Vector3(-9.5, 0.8, -12),
+        rot: new THREE.Vector3(0.06, 0.22, -0.02),
+        scale: [5.0, 3.1]
       },
       {
         src: assets.experiments.fluidMatter,
-        pos: new THREE.Vector3(3.2, 1.6, -7),
-        rot: new THREE.Vector3(-0.1, -0.15, 0.05),
+        pos: new THREE.Vector3(11.5, -1.2, -22),
+        rot: new THREE.Vector3(-0.08, -0.2, 0.04),
         scale: [4.6, 2.8]
       },
       {
         src: assets.experiments.lightField,
-        pos: new THREE.Vector3(0, 0, -15),
-        rot: new THREE.Vector3(0, 0, 0),
-        scale: [6.0, 3.8]
+        pos: new THREE.Vector3(-14.0, -0.5, -34),
+        rot: new THREE.Vector3(0, 0.18, 0),
+        scale: [5.8, 3.6]
       }
     ];
 

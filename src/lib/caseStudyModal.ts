@@ -94,21 +94,21 @@ export class CaseStudyModal {
         <!-- 01 THE IDEA -->
         <div class="pillar-item">
           <div class="eyebrow">01 — The Idea</div>
-          <h5>Concept & Problem Formulation</h5>
+          <h3>Concept & Problem Formulation</h3>
           <p>${idea}</p>
         </div>
 
         <!-- 02 PROCESS -->
         <div class="pillar-item">
           <div class="eyebrow">02 — Process</div>
-          <h5>Methodology & Algorithmic Strategy</h5>
+          <h3>Methodology & Algorithmic Strategy</h3>
           <p>${process}</p>
         </div>
 
         <!-- 03 ARCHITECTURE (FULL-WIDTH TECHNICAL SYSTEM SHOWCASE) -->
         <div class="pillar-item pillar-architecture-block">
           <div class="eyebrow">03 — Architecture & System Topography</div>
-          <h5>System Architecture & Data Flow</h5>
+          <h3>System Architecture & Data Flow</h3>
           <p style="margin-bottom: 1.75rem; font-size: 0.92rem; color: var(--color-fg-subtle);">${architecture.overview}</p>
           
           <div class="architecture-flow-grid">
@@ -124,21 +124,21 @@ export class CaseStudyModal {
         <!-- 04 EXPERIENCE -->
         <div class="pillar-item">
           <div class="eyebrow">04 — Experience</div>
-          <h5>Interaction & Visual Feedback</h5>
+          <h3>Interaction & Visual Feedback</h3>
           <p>${experience}</p>
         </div>
 
         <!-- 05 TECHNOLOGY -->
         <div class="pillar-item">
           <div class="eyebrow">05 — Technology</div>
-          <h5>Engineering Stack & Tools</h5>
+          <h3>Engineering Stack & Tools</h3>
           <p>${technology}</p>
         </div>
 
         <!-- 06 RESULT -->
         <div class="pillar-item">
           <div class="eyebrow">06 — Result</div>
-          <h5>Convergence & Benchmark Impact</h5>
+          <h3>Convergence & Benchmark Impact</h3>
           <p>${result}</p>
         </div>
       </div>

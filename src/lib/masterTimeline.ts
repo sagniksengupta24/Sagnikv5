@@ -93,64 +93,91 @@ export class MasterTimeline {
           this.onSceneChangeCallback?.(activeScene.id, activeSceneIndex, scenes.length);
         }
 
-        // 5. Kinetic project transition choreography ("A becomes B")
+        // 5. Kinetic project transition choreography ("A becomes B") — Milestone 2 Clean Clearing
         const card1 = document.querySelector<HTMLElement>('#projectVisualMotoSim');
         const card2 = document.querySelector<HTMLElement>('#projectVisualQuantum');
         const card3 = document.querySelector<HTMLElement>('#projectVisualFinops');
 
         // Project 01: Moto-Sim DRL (0.28 to 0.38)
-        if (card1 && progress >= 0.28 && progress <= 0.38) {
-          const normP1 = (progress - 0.28) / (0.38 - 0.28);
-          // Scale from 1 to 1.15, translate Y, and crop clip-path as it approaches transition
-          const scale = 1 + normP1 * 0.15;
-          const translateY = -normP1 * 35;
-          const cropX = normP1 * 6; // subtle side crop
-          card1.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
-          card1.style.clipPath = `inset(0% ${cropX}% 0% ${cropX}% round 2px)`;
+        if (card1) {
+          if (progress >= 0.28 && progress <= 0.38) {
+            const normP1 = (progress - 0.28) / (0.38 - 0.28);
+            const scale = 1 + normP1 * 0.15;
+            const translateY = -normP1 * 35;
+            const cropX = normP1 * 6;
+            const op = normP1 > 0.85 ? Math.max(0, 1 - (normP1 - 0.85) / 0.15) : 1;
+            card1.style.opacity = `${op}`;
+            card1.style.pointerEvents = op > 0.1 ? 'auto' : 'none';
+            card1.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
+            card1.style.clipPath = `inset(0% ${cropX}% 0% ${cropX}% round 2px)`;
+          } else {
+            card1.style.opacity = '0';
+            card1.style.pointerEvents = 'none';
+            card1.style.transform = 'translate3d(0, 0, 0) scale(1)';
+            card1.style.clipPath = 'none';
+          }
         }
 
         // Project 02: Quantum Tic-Tac-Toe (0.38 to 0.48)
-        if (card2 && progress >= 0.38 && progress <= 0.48) {
-          const normP2 = (progress - 0.38) / (0.48 - 0.38);
-          // Starts scaled up with mask opening, stabilizes at 1.0, then crops toward next
-          let scale: number;
-          let translateY: number;
-          let cropX: number;
+        if (card2) {
+          if (progress >= 0.38 && progress <= 0.48) {
+            const normP2 = (progress - 0.38) / (0.48 - 0.38);
+            let scale: number;
+            let translateY: number;
+            let cropX: number;
 
-          if (normP2 < 0.5) {
-            const entryNorm = normP2 / 0.5;
-            scale = 1.18 - entryNorm * 0.18;
-            translateY = 35 - entryNorm * 35;
-            cropX = (1 - entryNorm) * 8;
+            if (normP2 < 0.5) {
+              const entryNorm = normP2 / 0.5;
+              scale = 1.18 - entryNorm * 0.18;
+              translateY = 35 - entryNorm * 35;
+              cropX = (1 - entryNorm) * 8;
+            } else {
+              const exitNorm = (normP2 - 0.5) / 0.5;
+              scale = 1.0 + exitNorm * 0.15;
+              translateY = -exitNorm * 35;
+              cropX = exitNorm * 6;
+            }
+
+            const op = normP2 > 0.88 ? Math.max(0, 1 - (normP2 - 0.88) / 0.12) : 1;
+            card2.style.opacity = `${op}`;
+            card2.style.pointerEvents = op > 0.1 ? 'auto' : 'none';
+            card2.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
+            card2.style.clipPath = `inset(0% ${cropX}% 0% ${cropX}% round 2px)`;
           } else {
-            const exitNorm = (normP2 - 0.5) / 0.5;
-            scale = 1.0 + exitNorm * 0.15;
-            translateY = -exitNorm * 35;
-            cropX = exitNorm * 6;
+            card2.style.opacity = '0';
+            card2.style.pointerEvents = 'none';
+            card2.style.transform = 'translate3d(0, 0, 0) scale(1)';
+            card2.style.clipPath = 'none';
           }
-
-          card2.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
-          card2.style.clipPath = `inset(0% ${cropX}% 0% ${cropX}% round 2px)`;
         }
 
         // Project 03: FinOps Engine (0.48 to 0.58)
-        if (card3 && progress >= 0.48 && progress <= 0.58) {
-          const normP3 = (progress - 0.48) / (0.58 - 0.48);
-          // Emerges from Quantum, stabilizes, then prepares for 3D spatial collapse
-          let scale: number;
-          let translateY: number;
+        if (card3) {
+          if (progress >= 0.48 && progress <= 0.58) {
+            const normP3 = (progress - 0.48) / (0.58 - 0.48);
+            let scale: number;
+            let translateY: number;
 
-          if (normP3 < 0.5) {
-            const entryNorm = normP3 / 0.5;
-            scale = 1.18 - entryNorm * 0.18;
-            translateY = 35 - entryNorm * 35;
+            if (normP3 < 0.5) {
+              const entryNorm = normP3 / 0.5;
+              scale = 1.18 - entryNorm * 0.18;
+              translateY = 35 - entryNorm * 35;
+            } else {
+              const exitNorm = (normP3 - 0.5) / 0.5;
+              scale = 1.0 + exitNorm * 0.18;
+              translateY = -exitNorm * 40;
+            }
+
+            // Milestone 2 Fix: FinOps card fully fades out before 0.58 so NO card lingers into Chapter 04
+            const op = normP3 > 0.80 ? Math.max(0, 1 - (normP3 - 0.80) / 0.20) : 1;
+            card3.style.opacity = `${op}`;
+            card3.style.pointerEvents = op > 0.1 ? 'auto' : 'none';
+            card3.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
           } else {
-            const exitNorm = (normP3 - 0.5) / 0.5;
-            scale = 1.0 + exitNorm * 0.18;
-            translateY = -exitNorm * 40;
+            card3.style.opacity = '0';
+            card3.style.pointerEvents = 'none';
+            card3.style.transform = 'translate3d(0, 0, 0) scale(1)';
           }
-
-          card3.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
         }
       }
     });

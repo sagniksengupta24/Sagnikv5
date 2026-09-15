@@ -237,7 +237,7 @@ function renderDynamicContent(): void {
           <img src="${exp.media.thumbnail}" alt="${exp.title}" loading="lazy" />
         </div>
         <div class="exp-info">
-          <h4>${exp.title} ↗</h4>
+          <h3>${exp.title} ↗</h3>
           <p>${exp.description}</p>
         </div>
       </a>
@@ -277,9 +277,11 @@ function renderDynamicContent(): void {
   }
 
   // Final Transmission: Contact (BE A PART.)
+  // Final Transmission: Contact (BE A PART. — Milestone 1 Safe Zone)
   const contactHeadline = document.getElementById('contactHeadline');
   if (contactHeadline) {
-    contactHeadline.innerHTML = contact.primaryCta.map((line, i) => `
+    const lines = ["BE A", "PART."];
+    contactHeadline.innerHTML = lines.map((line, i) => `
       <span class="mask-line"><span class="mask-inner ${i === 1 ? 'indent' : ''}">${line}</span></span>
     `).join('');
   }
@@ -311,6 +313,12 @@ function setupNavigation(): void {
   const menuOverlay = document.getElementById('menuOverlay');
   const menuCloseBtn = document.getElementById('menuCloseBtn');
   const navContainer = document.getElementById('menuNavLinks');
+  let previousActiveElement: HTMLElement | null = null;
+
+  if (menuBtn) {
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.setAttribute('aria-controls', 'menuOverlay');
+  }
 
   if (navContainer) {
     navContainer.innerHTML = site.navigation.map(item => `
@@ -318,24 +326,61 @@ function setupNavigation(): void {
         ${item.label}
       </a>
     `).join('') + `
-      <a class="menu-nav-link menu-nav-cta" href="#contact" data-scene-index="8" style="margin-top: 1.5rem; color: #fff; font-size: clamp(1.4rem, 2.8vw, 2.8rem);">
+      <a class="menu-nav-link menu-nav-cta" href="#contact" data-scene-index="8">
         ${site.ctaLabel}
       </a>
     `;
   }
 
   const openMenu = () => {
+    previousActiveElement = document.activeElement as HTMLElement;
     menuOverlay?.classList.add('open');
+    menuBtn?.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
+    menuCloseBtn?.focus();
   };
 
   const closeMenu = () => {
     menuOverlay?.classList.remove('open');
+    menuBtn?.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+    previousActiveElement?.focus();
   };
 
   menuBtn?.addEventListener('click', openMenu);
   menuCloseBtn?.addEventListener('click', closeMenu);
+
+  // Keyboard Navigation: Escape to close & Focus Trap (Milestone 5)
+  window.addEventListener('keydown', (e) => {
+    if (menuOverlay?.classList.contains('open')) {
+      if (e.key === 'Escape') {
+        closeMenu();
+        return;
+      }
+
+      if (e.key === 'Tab') {
+        const focusable = menuOverlay.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusable.length === 0) return;
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      }
+    }
+  });
 
   document.querySelectorAll('.menu-nav-link').forEach((link) => {
     link.addEventListener('click', (e) => {
