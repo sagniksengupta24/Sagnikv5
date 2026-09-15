@@ -136,11 +136,11 @@ export const projects: Project[] = [
       accent: "#FF6E3A"
     },
     media: {
-      hero: "/assets/projects/moto-sim/hero.jpg",
-      poster: "/assets/projects/moto-sim/poster.jpg",
+      hero: "./assets/projects/moto-sim/hero.jpg",
+      poster: "./assets/projects/moto-sim/poster.jpg",
       gallery: [
-        "/assets/projects/moto-sim/hero.jpg",
-        "/assets/projects/moto-sim/poster.jpg"
+        "./assets/projects/moto-sim/hero.jpg",
+        "./assets/projects/moto-sim/poster.jpg"
       ]
     },
     caseStudy: {
@@ -190,11 +190,11 @@ export const projects: Project[] = [
       accent: "#8B9AFF"
     },
     media: {
-      hero: "/assets/projects/quantum/hero.jpg",
-      poster: "/assets/projects/quantum/poster.jpg",
+      hero: "./assets/projects/quantum/hero.jpg",
+      poster: "./assets/projects/quantum/poster.jpg",
       gallery: [
-        "/assets/projects/quantum/hero.jpg",
-        "/assets/projects/quantum/poster.jpg"
+        "./assets/projects/quantum/hero.jpg",
+        "./assets/projects/quantum/poster.jpg"
       ]
     },
     caseStudy: {
@@ -244,11 +244,11 @@ export const projects: Project[] = [
       accent: "#4ECCA3"
     },
     media: {
-      hero: "/assets/projects/finops/hero.jpg",
-      poster: "/assets/projects/finops/poster.jpg",
+      hero: "./assets/projects/finops/hero.jpg",
+      poster: "./assets/projects/finops/poster.jpg",
       gallery: [
-        "/assets/projects/finops/hero.jpg",
-        "/assets/projects/finops/poster.jpg"
+        "./assets/projects/finops/hero.jpg",
+        "./assets/projects/finops/poster.jpg"
       ]
     },
     caseStudy: {
@@ -318,7 +318,7 @@ export const experiments: Experiment[] = [
     year: "2026",
     url: "https://github.com/sagniksengupta24/Spiral-Creator",
     media: {
-      thumbnail: "/assets/experiments/fluid-matter.jpg"
+      thumbnail: "./assets/experiments/fluid-matter.jpg"
     },
     featured: true
   },
@@ -332,7 +332,7 @@ export const experiments: Experiment[] = [
     year: "2026",
     url: "https://github.com/sagniksengupta24/uvSphere",
     media: {
-      thumbnail: "/assets/experiments/light-field.jpg"
+      thumbnail: "./assets/experiments/light-field.jpg"
     },
     featured: true
   },
@@ -346,7 +346,7 @@ export const experiments: Experiment[] = [
     year: "2026",
     url: "https://github.com/sagniksengupta24/Decoded",
     media: {
-      thumbnail: "/assets/projects/moto-sim/hero.jpg"
+      thumbnail: "./assets/projects/moto-sim/hero.jpg"
     },
     featured: true
   },
@@ -360,7 +360,7 @@ export const experiments: Experiment[] = [
     year: "2026",
     url: "https://github.com/sagniksengupta24/2d_Game",
     media: {
-      thumbnail: "/assets/projects/quantum/hero.jpg"
+      thumbnail: "./assets/projects/quantum/hero.jpg"
     },
     featured: true
   }
@@ -628,24 +628,24 @@ export const motionConfig = {
 
 // 11. ASSET MANIFEST
 export const assets = {
-  cinematicFilm: "/assets/portfolio-film.mp4",
+  cinematicFilm: "./assets/portfolio-film.mp4",
   projects: {
     motoSim: {
-      hero: "/assets/projects/moto-sim/hero.jpg",
-      poster: "/assets/projects/moto-sim/poster.jpg"
+      hero: "./assets/projects/moto-sim/hero.jpg",
+      poster: "./assets/projects/moto-sim/poster.jpg"
     },
     quantum: {
-      hero: "/assets/projects/quantum/hero.jpg",
-      poster: "/assets/projects/quantum/poster.jpg"
+      hero: "./assets/projects/quantum/hero.jpg",
+      poster: "./assets/projects/quantum/poster.jpg"
     },
     finops: {
-      hero: "/assets/projects/finops/hero.jpg",
-      poster: "/assets/projects/finops/poster.jpg"
+      hero: "./assets/projects/finops/hero.jpg",
+      poster: "./assets/projects/finops/poster.jpg"
     }
   },
   experiments: {
-    fluidMatter: "/assets/experiments/fluid-matter.jpg",
-    lightField: "/assets/experiments/light-field.jpg"
+    fluidMatter: "./assets/experiments/fluid-matter.jpg",
+    lightField: "./assets/experiments/light-field.jpg"
   }
 };
 
