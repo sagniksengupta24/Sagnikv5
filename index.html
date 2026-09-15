@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#060607" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="description" content="Sagnik Sengupta — Creative developer and interaction designer crafting high-fashion digital editorial films, 3D WebGL worlds, and tactile interactive experiences." />
+  
+  <!-- Open Graph / Twitter Metadata -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SAGNIK SENGUPTA — Creative Developer & Interaction Designer" />
+  <meta property="og:description" content="I build digital experiences that feel alive. High-fashion editorial art direction meets real-time WebGL and scroll-driven film choreography." />
+  <meta name="twitter:card" content="summary_large_image" />
+  
+  <title>SAGNIK SENGUPTA — Creative Developer / Designer</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
+</head>
+<body>
+  <!-- Minimal Desktop Cursor -->
+  <div id="customCursor" aria-hidden="true"></div>
+
+  <!-- Editorial Preloader -->
+  <aside id="preloader" role="status" aria-live="polite">
+    <div class="loader-title">SAGNIK SENGUPTA</div>
+    <div class="loader-bar-bg">
+      <div class="loader-bar-fill" style="width: 100%;"></div>
+    </div>
+    <span class="sub-editorial" style="margin-top: 1.25rem; font-size: 0.72rem; letter-spacing: 0.25em;">ENTERING EXPERIENCE...</span>
+  </aside>
+
+  <!-- Pinned Cinematic Video Layer -->
+  <div id="film-container" aria-hidden="true">
+    <video
+      id="film"
+      muted
+      playsinline
+      preload="auto"
+      src="/assets/portfolio-film.mp4"
+    ></video>
+  </div>
+
+  <!-- Signature 3D WebGL Canvas Layer -->
+  <canvas id="canvas-3d" aria-hidden="true"></canvas>
+
+  <!-- Filmic Atmospheric Overlays -->
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Persistent Header Navigation -->
+  <header class="site-header" role="banner">
+    <a class="brand-title" href="#hero" id="brandTitle">SAGNIK SENGUPTA</a>
+    <div class="header-controls">
+      <button class="nav-btn" id="menuBtn" aria-label="Open Navigation Menu">MENU</button>
+    </div>
+  </header>
+
+  <!-- Persistent Timeline Scene Indicator -->
+  <aside class="scene-indicator" aria-label="Timeline progress">
+    <div class="track-line">
+      <div class="track-fill" id="trackFill"></div>
+    </div>
+    <span class="scene-num" id="sceneNum">01 / 08</span>
+  </aside>
+
+  <!-- Master Scroll Stage -->
+  <main class="scroll-stage" id="scrollStage">
+    <div class="sticky-viewport">
+      
+      <!-- CHAPTER 01: Hero -->
+      <section class="scene scene-hero active" data-scene-id="hero" id="hero" aria-label="Chapter 01 — Hero Scene">
+        <div class="eyebrow" id="heroEyebrow">CHAPTER 01 / PROLOGUE — 2026</div>
+        <h1 class="hero-title" id="heroTitle"></h1>
+        <div class="hero-role-badge" id="heroRoleBadge" style="margin-top: 1rem; font-family: var(--font-sans); font-size: var(--text-meta); letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-fg-subtle);">
+          CREATIVE DEVELOPER / AI & BACKEND / ARCHITECT
+        </div>
+        <p class="body-editorial" id="heroSub" style="margin-top: 1.5rem; max-width: 48ch;"></p>
+        <div class="scroll-prompt" aria-hidden="true">
+          <div class="scroll-prompt-line"></div>
+          <span id="heroScrollPrompt">SCROLL TO ENTER FILM</span>
+        </div>
+      </section>
+
+      <!-- CHAPTER 02: Identity -->
+      <section class="scene scene-identity" data-scene-id="identity" id="identity" aria-label="Chapter 02 — Identity Scene">
+        <div class="eyebrow" id="identityEyebrow">CHAPTER 02 / IDENTITY</div>
+        <h2 class="statement-title" id="identityTitle"></h2>
+        <div class="identity-meta">
+          <div class="sub-editorial" id="identitySupporting" style="margin-bottom: 0.75rem; letter-spacing: 0.2em; color: var(--color-fg);"></div>
+          <p class="sub-editorial" id="identityDesc" style="max-width: 58ch;"></p>
+        </div>
+      </section>
+
+      <!-- CHAPTER 03 — SCENE 01: Moto-Sim DRL -->
+      <section class="scene scene-project" data-scene-id="work-1" id="projectMotoSim" aria-label="Project Moto-Sim DRL">
+        <div class="project-info-col">
+          <div class="eyebrow">CHAPTER 03 / 01 — SELECTED WORK</div>
+          <h2 class="project-title" id="p1Title">MOTO-SIM DRL</h2>
+          <div class="project-meta-row" id="p1Meta"></div>
+          <p class="body-editorial" id="p1Desc" style="margin: 1.25rem 0 2rem; max-width: 48ch; font-size: 0.95rem;"></p>
+          <div style="display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap;">
+            <button class="project-cta-btn" data-project-open="moto-sim-drl">Explore Case Study →</button>
+            <a class="contact-link" id="p1Github" href="https://github.com/sagniksengupta24/Recurrent-PPO-MotoSim" target="_blank" rel="noopener noreferrer" style="font-size: 0.78rem;">GitHub ↗</a>
+          </div>
+        </div>
+        <div class="project-visual-card" id="projectVisualMotoSim" data-project-open="moto-sim-drl">
+          <img id="p1Img" src="/assets/projects/moto-sim/hero.jpg" alt="Moto-Sim DRL Showcase" />
+        </div>
+      </section>
+
+      <!-- CHAPTER 03 — SCENE 02: Quantum Tic-Tac-Toe -->
+      <section class="scene scene-project" data-scene-id="work-2" id="projectQuantum" aria-label="Project Quantum Tic-Tac-Toe">
+        <div class="project-info-col">
+          <div class="eyebrow">CHAPTER 03 / 02 — SELECTED WORK</div>
+          <h2 class="project-title" id="p2Title">QUANTUM TIC-TAC-TOE</h2>
+          <div class="project-meta-row" id="p2Meta"></div>
+          <p class="body-editorial" id="p2Desc" style="margin: 1.25rem 0 2rem; max-width: 48ch; font-size: 0.95rem;"></p>
+          <div style="display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap;">
+            <button class="project-cta-btn" data-project-open="quantum-tictactoe">Explore Case Study →</button>
+            <a class="contact-link" id="p2Github" href="https://github.com/sagniksengupta24/Quantum-TicTacToe" target="_blank" rel="noopener noreferrer" style="font-size: 0.78rem;">GitHub ↗</a>
+          </div>
+        </div>
+        <div class="project-visual-card" id="projectVisualQuantum" data-project-open="quantum-tictactoe">
+          <img id="p2Img" src="/assets/projects/quantum/hero.jpg" alt="Quantum Tic-Tac-Toe Showcase" />
+        </div>
+      </section>
+
+      <!-- CHAPTER 03 — SCENE 03: FinOps Engine -->
+      <section class="scene scene-project" data-scene-id="work-3" id="projectFinops" aria-label="Project FinOps Engine">
+        <div class="project-info-col">
+          <div class="eyebrow">CHAPTER 03 / 03 — SELECTED WORK</div>
+          <h2 class="project-title" id="p3Title">FINOPS ENGINE</h2>
+          <div class="project-meta-row" id="p3Meta"></div>
+          <p class="body-editorial" id="p3Desc" style="margin: 1.25rem 0 2rem; max-width: 48ch; font-size: 0.95rem;"></p>
+          <div style="display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap;">
+            <button class="project-cta-btn" data-project-open="finops-environment">Explore Case Study →</button>
+            <a class="contact-link" id="p3Github" href="https://github.com/sagniksengupta24/FinOps_Enviroment" target="_blank" rel="noopener noreferrer" style="font-size: 0.78rem;">GitHub ↗</a>
+          </div>
+        </div>
+        <div class="project-visual-card" id="projectVisualFinops" data-project-open="finops-environment">
+          <img id="p3Img" src="/assets/projects/finops/hero.jpg" alt="FinOps Engine Showcase" />
+        </div>
+      </section>
+
+      <!-- CHAPTER 04: Signature 3D Spatial Fly-Through Moment -->
+      <section class="scene scene-spatial" data-scene-id="spatial-3d" id="spatialScene" aria-label="Chapter 04 — Spatial 3D Realm">
+        <div class="spatial-badge">CHAPTER 04 / SIGNATURE 3D REALM</div>
+        <h2 class="statement-title" style="font-size: clamp(2.5rem, 6.5vw, 6.5rem);">
+          TRANSVERSE<br /><span class="indent" style="font-style: italic; font-weight: 400;">DIMENSION</span>
+        </h2>
+        <p class="sub-editorial" style="margin-top: 1.5rem; max-width: 52ch; margin-left: auto; margin-right: auto; line-height: 1.7;">
+          2D composition collapses into Z-space depth. The camera travels through floating project wireframes, mathematical geometry, and code structures before reforming into editorial print.
+        </p>
+      </section>
+
+      <!-- CHAPTER 05: Experiments -->
+      <section class="scene scene-experiments" data-scene-id="experiments" id="experiments" aria-label="Chapter 05 — Experiments & Capabilities">
+        <div class="experiments-grid">
+          <div>
+            <div class="eyebrow">CHAPTER 05 / LAB & CODE EXPERIMENTS</div>
+            <h2 class="statement-title" style="font-size: clamp(2.2rem, 5.5vw, 5.5rem);">
+              BREAK<br /><span class="indent">SYSTEMS.</span>
+            </h2>
+            <p class="body-editorial" style="margin-top: 1.5rem;">
+              A playground for ideas, interaction, motion, and digital systems. Shaders, parametric mathematics, neural representations, and physics manifolds.
+            </p>
+            <div class="capabilities-matrix" id="capabilitiesMatrix"></div>
+          </div>
+          <div class="experiment-cards" id="experimentCardsContainer"></div>
+        </div>
+      </section>
+
+      <!-- CHAPTER 06: About & Capabilities -->
+      <section class="scene scene-about" data-scene-id="about" id="about" aria-label="Chapter 06 — About Sagnik">
+        <div class="about-content-layout">
+          <div>
+            <div class="eyebrow" id="aboutEyebrow">CHAPTER 06 / ABOUT</div>
+            <h2 class="statement-title" id="aboutHeadline" style="font-size: clamp(2rem, 4.5vw, 4.5rem); line-height: 1.08;"></h2>
+            <div class="body-editorial" id="aboutDesc" style="margin-top: 2rem;"></div>
+          </div>
+          <div class="about-telemetry-card">
+            <div class="telemetry-header">
+              <span class="telemetry-dot"></span>
+              <span>SAGNIK SENGUPTA // TELEMETRY</span>
+            </div>
+            <div class="telemetry-mantra">
+              BUILDING<br />
+              BREAKING<br />
+              LEARNING<br />
+              REBUILDING.
+            </div>
+            <div class="telemetry-footer">
+              <span>SYSTEMS. IDEAS. OBSESSION.</span>
+              <span>INDIA // AVAILABLE WORLDWIDE</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FINAL CHAPTER: Contact / Transmission (BE A PART.) -->
+      <section class="scene scene-contact" data-scene-id="contact" id="contact" aria-label="Final Scene — Be A Part">
+        <div class="eyebrow">FINAL TRANSMISSION</div>
+        <h2 class="hero-title" id="contactHeadline" style="font-size: clamp(4rem, 12vw, 13rem); line-height: 0.88; margin-top: 0.5rem;"></h2>
+        <p class="body-editorial" id="contactSub" style="margin-top: 2.25rem; font-size: clamp(1rem, 1.4vw, 1.4rem);"></p>
+        <a class="project-cta-btn" id="contactCta" href="mailto:sagniksengupta24@gmail.com" style="margin-top: 2.5rem; font-size: 1rem; padding: 1.1rem 2.5rem;"></a>
+        <nav class="contact-links-row" id="contactLinks" aria-label="Social and Transmission channels"></nav>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Fullscreen Project Case Study Modal (Native HTML5 <dialog> with @starting-style) -->
+  <dialog id="caseStudyModal" aria-label="Project Case Study Details">
+    <div class="modal-inner"></div>
+  </dialog>
+
+  <!-- Fullscreen Editorial Menu Overlay -->
+  <div class="menu-overlay" id="menuOverlay" role="dialog" aria-label="Navigation Menu" aria-modal="true">
+    <button class="modal-close-btn" id="menuCloseBtn" aria-label="Close Navigation Menu">Close ✕</button>
+    <nav class="menu-nav" id="menuNavLinks" aria-label="Site Navigation"></nav>
+  </div>
+
+  <!-- Application Bootstrap -->
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

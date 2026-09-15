@@ -1,0 +1,53 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: auto;
+  background-color: #060607;
+  color: #f5f3ef;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #060607;
+  color: #f5f3ef;
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100%;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+img, video, canvas {
+  display: block;
+  max-width: 100%;
+}
+
+ul, ol {
+  list-style: none;
+}

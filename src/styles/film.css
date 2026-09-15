@@ -1,0 +1,77 @@
+/* Fixed Cinematic Background Film */
+#film-container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: var(--z-film);
+  overflow: hidden;
+  background-color: #060607;
+  pointer-events: none;
+}
+
+#film {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%) scale(1.02);
+  object-fit: cover;
+  filter: saturate(0.85) contrast(1.08) brightness(0.92);
+  will-change: transform, filter;
+  transition: filter 0.8s ease;
+}
+
+/* Atmospheric Vignette */
+.vignette {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-vignette);
+  pointer-events: none;
+  background: 
+    radial-gradient(ellipse at center, rgba(6, 6, 7, 0.15) 30%, rgba(6, 6, 7, 0.75) 100%),
+    linear-gradient(180deg, rgba(6, 6, 7, 0.65) 0%, transparent 25%, transparent 75%, rgba(6, 6, 7, 0.85) 100%);
+  mix-blend-mode: multiply;
+}
+
+/* Film Grain Simulation */
+.grain {
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: var(--z-grain);
+  pointer-events: none;
+  opacity: 0.038;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  animation: grainJitter 0.22s steps(4) infinite;
+  will-change: transform;
+}
+
+@keyframes grainJitter {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2%, 3%); }
+  50% { transform: translate(3%, -1%); }
+  75% { transform: translate(-1%, -2%); }
+  100% { transform: translate(2%, 1%); }
+}
+
+/* 3D WebGL Canvas Layer */
+#canvas-3d {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: var(--z-3d);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.8s var(--ease-cinematic);
+}
+
+#canvas-3d.active {
+  opacity: 1;
+  pointer-events: auto;
+}

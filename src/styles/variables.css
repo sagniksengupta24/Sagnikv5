@@ -1,0 +1,45 @@
+:root {
+  /* Color Palette - Filmic Editorial Tone */
+  --color-bg: #060607;
+  --color-bg-translucent: rgba(6, 6, 7, 0.88);
+  --color-fg: #f5f3ee;
+  --color-fg-subtle: #d0cdc6;
+  --color-muted: #88857e;
+  --color-line: rgba(255, 255, 255, 0.12);
+  --color-line-active: rgba(255, 255, 255, 0.45);
+  --color-accent: #eae7de;
+  --color-accent-glow: rgba(255, 255, 255, 0.08);
+
+  /* Spacing Tokens */
+  --space-pad: clamp(1.25rem, 3.5vw, 3.5rem);
+  --space-gutter: clamp(1rem, 2vw, 2.5rem);
+
+  /* Fonts */
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Typography Scales */
+  --text-hero: clamp(3.5rem, 11vw, 13rem);
+  --text-statement: clamp(2.5rem, 7.5vw, 8.5rem);
+  --text-title: clamp(2rem, 5.5vw, 6.5rem);
+  --text-heading: clamp(1.5rem, 3.2vw, 3.8rem);
+  --text-body: clamp(0.85rem, 1.05vw, 1.15rem);
+  --text-meta: clamp(0.68rem, 0.8vw, 0.82rem);
+
+  /* Z-Index Hierarchy */
+  --z-film: 0;
+  --z-3d: 1;
+  --z-vignette: 2;
+  --z-grain: 3;
+  --z-scenes: 10;
+  --z-header: 50;
+  --z-counter: 50;
+  --z-modal: 100;
+  --z-menu: 110;
+  --z-cursor: 999;
+  --z-loader: 1000;
+
+  /* Transitions */
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
